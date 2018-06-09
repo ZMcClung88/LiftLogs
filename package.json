@@ -1,5 +1,5 @@
 {
-  "name": "liftLogs",
+  "name": "liftlogs",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -23,5 +23,16 @@
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-navigation": "^2.2.5"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZMcClung88/LiftLogs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZMcClung88/LiftLogs/issues"
+  },
+  "homepage": "https://github.com/ZMcClung88/LiftLogs#readme"
 }

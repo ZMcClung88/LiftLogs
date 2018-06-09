@@ -6,6 +6,11 @@ class AuthScreen extends Component {
     return (
       <View>
         <Text>FREEEEZEE!!! THIS IS THE AUTH SCREEN!</Text>
+        <Text>FREEEEZEE!!! THIS IS THE AUTH SCREEN!</Text>
+        <Text>FREEEEZEE!!! THIS IS THE AUTH SCREEN!</Text>
+        <Text>FREEEEZEE!!! THIS IS THE AUTH SCREEN!</Text>
+        <Text>FREEEEZEE!!! THIS IS THE AUTH SCREEN!</Text>
+        <Text>FREEEEZEE!!! THIS IS THE AUTH SCREEN!</Text>
       </View>
     );
   }

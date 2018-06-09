@@ -6,6 +6,11 @@ class DashScreen extends Component {
     return (
       <View>
         <Text>!!! Dashboard areas !!!</Text>
+        <Text>!!! Dashboard areas !!!</Text>
+        <Text>!!! Dashboard areas !!!</Text>
+        <Text>!!! Dashboard areas !!!</Text>
+        <Text>!!! Dashboard areas !!!</Text>
+        <Text>!!! Dashboard areas !!!</Text>
       </View>
     );
   }
