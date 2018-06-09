@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
 
+import store from './store';
 import WelcomeScreen from './screens/WelcomeScreen';
 import AuthScreen from './screens/AuthScreen';
 import DashScreen from './screens/DashScreen';
@@ -16,17 +18,23 @@ export default class App extends Component {
     const MainNavigator = createBottomTabNavigator({
       welcome: WelcomeScreen,
       auth: AuthScreen,
-      main: DashScreen
+      main: createBottomTabNavigator({
+        dash: DashScreen,
+        addEmp: AddEmployee,
+        addLift: AddLift
+      })
     });
 
     return (
-      <View style={styles.container}>
-        {/* <Text>App!</Text>
-        <WelcomeScreen />
-        <AuthScreen />
-        <DashScreen /> */}
-        <MainNavigator />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          {/* <Text>App!</Text>
+          <WelcomeScreen />
+          <AuthScreen />
+          <DashScreen /> */}
+          <MainNavigator />
+        </View>
+      </Provider>
     );
   }
 }
