@@ -15,15 +15,25 @@ import LiftList from './screens/LiftList';
 
 export default class App extends Component {
   render() {
-    const MainNavigator = createBottomTabNavigator({
-      welcome: WelcomeScreen,
-      auth: AuthScreen,
-      main: createBottomTabNavigator({
-        dash: DashScreen,
-        addEmp: AddEmployee,
-        addLift: AddLift
-      })
-    });
+    const MainNavigator = createBottomTabNavigator(
+      {
+        welcome: WelcomeScreen,
+        auth: AuthScreen,
+        main: createBottomTabNavigator({
+          AddEmp: AddEmployee,
+          AddLift: AddLift
+        })
+      },
+      {
+        navigationOptions: {
+          tabBarVisible: false
+        }
+        // tabBarPosition: 'bottom',
+        // swipeEnabled: false,
+        // lazy: true,
+        // animationEnabled: false
+      }
+    );
 
     return (
       <Provider store={store}>
