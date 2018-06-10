@@ -12,6 +12,7 @@ import AddLift from './screens/AddLift';
 import AnouncementScreen from './screens/AnouncementScreen';
 import EmployeeList from './screens/EmployeeList';
 import LiftList from './screens/LiftList';
+import MenuScreen from './screens/MenuScreen';
 
 export default class App extends Component {
   render() {
@@ -19,10 +20,21 @@ export default class App extends Component {
       {
         welcome: WelcomeScreen,
         auth: AuthScreen,
-        main: createBottomTabNavigator({
-          AddEmp: AddEmployee,
-          AddLift: AddLift
-        })
+        dash: {
+          screen: createStackNavigator(
+            {
+              dash: DashScreen,
+              menu: MenuScreen
+            },
+            {
+              tabBarPosition: 'bottom',
+              lazyLoad: true,
+              tabBarOptions: {
+                labelStyle: { fontSize: 12 }
+              }
+            }
+          )
+        }
       },
       {
         navigationOptions: {
