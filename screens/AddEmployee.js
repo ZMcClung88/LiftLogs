@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, AsyncStorage, Dimensions } from 'react-native';
-import { Button } from 'react-native-elements';
 
 class AddEmployee extends Component {
   onButtonPress = () => {
@@ -12,13 +11,11 @@ class AddEmployee extends Component {
   render() {
     return (
       <View style={styles.buttonContainer}>
-        <Button
-          large
-          title="Logout"
-          backgroundColor="red"
-          icon={{ name: 'delete-forever' }}
-          onPress={this.onButtonPress}
-        />
+        <Text>Add Emps</Text>
+        <Text>Add Emps</Text>
+        <Text>Add Emps</Text>
+        <Text>Add Emps</Text>
+        <Text>Add Emps</Text>
       </View>
     );
   }
@@ -28,10 +25,6 @@ const styles = {
   buttonContainer: {
     flex: 1,
     justifyContent: 'center'
-  },
-  buttonStyle: {
-    flex: 1,
-    marginTop: 150
   }
 };
 

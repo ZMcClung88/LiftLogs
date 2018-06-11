@@ -44,7 +44,9 @@ const styles = {
   },
   buttonStyle: {
     backgroundColor: '#F3D92D',
-    marginTop: 15
+    marginTop: 15,
+    width: 200,
+    borderRadius: 3
   }
 };
 

@@ -13,6 +13,7 @@ import AnouncementScreen from './screens/AnouncementScreen';
 import EmployeeList from './screens/EmployeeList';
 import LiftList from './screens/LiftList';
 import MenuScreen from './screens/MenuScreen';
+import ScheduleScreen from './screens/ScheduleScreen';
 
 export default class App extends Component {
   render() {
@@ -21,29 +22,22 @@ export default class App extends Component {
         welcome: WelcomeScreen,
         auth: AuthScreen,
         dash: {
-          screen: createStackNavigator(
-            {
-              dash: DashScreen,
-              menu: MenuScreen
-            },
-            {
-              tabBarPosition: 'bottom',
-              lazyLoad: true,
-              tabBarOptions: {
-                labelStyle: { fontSize: 12 }
-              }
-            }
-          )
+          screen: createStackNavigator({
+            dash: DashScreen,
+            menu: MenuScreen,
+            addEmp: AddEmployee,
+            addLift: AddLift,
+            notes: AnouncementScreen,
+            sched: ScheduleScreen,
+            liftList: LiftList,
+            empList: EmployeeList
+          })
         }
       },
       {
         navigationOptions: {
           tabBarVisible: false
         }
-        // tabBarPosition: 'bottom',
-        // swipeEnabled: false,
-        // lazy: true,
-        // animationEnabled: false
       }
     );
 
@@ -64,6 +58,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#596479'
   }
 });

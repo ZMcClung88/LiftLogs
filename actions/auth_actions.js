@@ -25,6 +25,9 @@ const doFacebookLogin = async dispatch => {
     permissions: ['public_profile']
   });
 
+  console.log('type', { type });
+  console.log('token', { token });
+
   if (type === 'cancel') {
     return dispatch({ type: FACEBOOK_LOGIN_FAIL });
   }

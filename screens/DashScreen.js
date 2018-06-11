@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import MyButton from '../components/myButton';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class DashScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -11,6 +12,10 @@ class DashScreen extends Component {
       title: 'Dashboard',
       tabBarIcon: () => {
         return <Icon name="favorite" size={30} />;
+      },
+      headerTintColor: 'royalblue',
+      headerStyle: {
+        backgroundColor: '#1e304f'
       },
       headerLeft: (
         <Button
@@ -28,6 +33,11 @@ class DashScreen extends Component {
       this.props.navigation.navigate('welcome');
     });
   };
+
+  onDashButtonPress(val) {
+    console.log('here!!!', val);
+    this.props.navigation.navigate(val);
+  }
 
   render() {
     return (
@@ -47,13 +57,10 @@ class DashScreen extends Component {
             titleStyle={{ fontWeight: 900 }}
             color="#1e304f"
           /> */}
-          <MyButton text="Schedule" />
-          <MyButton text="Notes" />
-          <MyButton text="Add Employee" />
-          <MyButton text="Add Lift" />
-        </View>
-        <View>
-          <Button title="Logout" backgroundColor="red" icon={{ name: 'delete-forever' }} onPress={this.onButtonPress} />
+          <MyButton text="Today" onPress={this.onDashButtonPress.bind(this, 'sched')} style={styles} />
+          <MyButton text="Notes" onPress={this.onDashButtonPress.bind(this, 'notes')} style={styles} />
+          <MyButton text="Employees" onPress={this.onDashButtonPress.bind(this, 'empList')} style={styles} />
+          <MyButton text="Lifts" onPress={this.onDashButtonPress.bind(this, 'liftList')} style={styles} />
         </View>
       </View>
     );
@@ -78,6 +85,7 @@ const styles = {
   },
   buttonContainer: {
     flex: 1,
+    backgroundColor: '#596479',
     // alignItems: 'center',
     justifyContent: 'space-around',
     marginBottom: 15
@@ -85,6 +93,24 @@ const styles = {
   buttonStyle: {
     flex: 1
     // marginBottom: 50
+  },
+  myButtonContainer: {
+    // flex: 1,
+    height: 50,
+    width: SCREEN_WIDTH * 0.9,
+    borderRadius: 3,
+    backgroundColor: '#1e304f',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    margin: 10
+  },
+  myButtonStyle: {
+    color: '#F3D92D',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 };
 
