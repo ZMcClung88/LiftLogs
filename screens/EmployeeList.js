@@ -11,7 +11,7 @@ class EmployeeList extends Component {
     return {
       title: 'Employees',
       tabBarIcon: () => {
-        return <Icon name="favorite" size={30} />;
+        return <Icon name="favorite" size={24} />;
       },
       headerTintColor: 'royalblue',
       headerStyle: {
