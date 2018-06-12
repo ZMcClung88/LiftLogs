@@ -10,8 +10,7 @@ class AddEmployee extends Component {
   state = {
     firstName: '',
     lastName: '',
-    phone: '',
-    shift: ''
+    phone: ''
   };
 
   onButtonPress = () => {};

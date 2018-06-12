@@ -8,14 +8,14 @@ export const employeeUpdate = ({ prop, value }) => {
   };
 };
 
-export const employeeCreate = ({ firstName, lastName, phone, shift }) => {
+export const employeeCreate = ({ firstName, lastName, phone }) => {
   const { currentUser } = firebase.auth();
   console.log(firebase.auth);
   return dispatch => {
     firebase
       .database()
       .ref(`/users/${currentUser.uid}/employees`)
-      .push({ firstName, lastName, phone, shift })
+      .push({ firstName, lastName, phone })
       .then(() => {
         dispatch({ type: EMPLOYEE_CREATE });
       });

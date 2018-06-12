@@ -2,10 +2,32 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
+import { Button } from 'react-native-elements';
 import { employeesFetch } from '../actions';
 import ListItem from '../components/ListItem';
 
 class EmployeeList extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Employees',
+      tabBarIcon: () => {
+        return <Icon name="favorite" size={30} />;
+      },
+      headerTintColor: 'royalblue',
+      headerStyle: {
+        backgroundColor: '#1e304f'
+      },
+      headerRight: (
+        <Button
+          title="Add"
+          onPress={() => navigation.navigate('addEmp')}
+          backgroundColor="rgba(0,0,0,0)"
+          color="rgba(0,122,255,1)"
+        />
+      )
+    };
+  };
+
   componentWillMount() {
     this.props.employeesFetch();
 

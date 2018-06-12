@@ -11,9 +11,9 @@ import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
   onButtonPress() {
-    const { firstName, lastName, phone, shift } = this.props;
-    this.props.employeeCreate({ firstName, lastName, phone, shift: shift || 'Monday' });
-    this.props.props.navigation.navigate('menu');
+    const { firstName, lastName, phone } = this.props;
+    this.props.employeeCreate({ firstName, lastName, phone });
+    this.props.props.navigation.navigate('empList');
   }
 
   render() {
@@ -29,9 +29,9 @@ class EmployeeCreate extends Component {
 }
 
 const mapStateToProps = state => {
-  const { firstName, lastName, phone, shift } = state.employeeForm;
+  const { firstName, lastName, phone } = state.employeeForm;
 
-  return { firstName, lastName, phone, shift };
+  return { firstName, lastName, phone };
 };
 
 export default connect(mapStateToProps, { employeeUpdate, employeeCreate, resetForm })(EmployeeCreate);
