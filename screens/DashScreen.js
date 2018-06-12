@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, AsyncStorage } from 'react-native';
+import { View, Text, Image, Dimensions, AsyncStorage } from 'react-native';
 import { Button } from 'react-native-elements';
 import MyButton from '../components/myButton';
 
@@ -61,6 +61,9 @@ class DashScreen extends Component {
           <MyButton text="Notes" onPress={this.onDashButtonPress.bind(this, 'notes')} style={styles} />
           <MyButton text="Employees" onPress={this.onDashButtonPress.bind(this, 'empList')} style={styles} />
           <MyButton text="Lifts" onPress={this.onDashButtonPress.bind(this, 'liftList')} style={styles} />
+        </View>
+        <View>
+          <Image style={{ width: 66, height: 58 }} source={require('../assets/logo.svg')} />
         </View>
       </View>
     );
