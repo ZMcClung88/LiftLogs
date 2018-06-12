@@ -10,13 +10,10 @@ import { Card, CardSection, Spinner, Button } from './common';
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
-  componentWillMount() {
-    this.props.resetForm();
-  }
-
   onButtonPress() {
-    const { name, phone, shift } = this.props;
-    this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
+    const { firstName, lastName, phone, shift } = this.props;
+    this.props.employeeCreate({ firstName, lastName, phone, shift: shift || 'Monday' });
+    this.props.props.navigation.navigate('menu');
   }
 
   render() {
@@ -32,9 +29,9 @@ class EmployeeCreate extends Component {
 }
 
 const mapStateToProps = state => {
-  const { name, phone, shift } = state.employeeForm;
+  const { firstName, lastName, phone, shift } = state.employeeForm;
 
-  return { name, phone, shift };
+  return { firstName, lastName, phone, shift };
 };
 
 export default connect(mapStateToProps, { employeeUpdate, employeeCreate, resetForm })(EmployeeCreate);
