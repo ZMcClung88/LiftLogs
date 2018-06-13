@@ -51,8 +51,9 @@ class EmployeeList extends Component {
   }
 
   renderRow(employee) {
-    console.log('employee', employee);
+    // console.log('employee', employee);
     return <ListItem employee={employee} />;
+    return null;
   }
 
   render() {

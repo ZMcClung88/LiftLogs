@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableWithoutFeedback } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { CardSection } from './common';
 
-class ListItem extends Component {
-  onRowPress() {
-    Actions.liftEdit({ list: this.props.lift });
+class LiftListItem extends Component {
+  onRowPress(props) {
+    console.log('lift list item props', this.props);
+    // Actions.liftEdit({ lift: this.props.lift });
   }
 
   render() {
     const { name } = this.props.lift;
 
     return (
-      <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
+      <TouchableOpacity onPress={this.onRowPress.bind(this)}>
         <View>
           <CardSection>
             <Text style={styles.titleStyle}>{name}</Text>
           </CardSection>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     );
   }
 }
@@ -30,4 +31,4 @@ const styles = {
   }
 };
 
-export default ListItem;
+export default LiftListItem;

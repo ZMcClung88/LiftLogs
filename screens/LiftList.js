@@ -60,12 +60,15 @@ class LiftList extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
+  // console.log('state', props);
   const lifts = _.map(state.lifts, (val, uid) => {
     return { ...val, uid };
   });
 
-  return { lifts };
+  const navigation = state.navigation;
+
+  return { lifts, navigation };
 };
 
 export default connect(mapStateToProps, { liftFetch })(LiftList);

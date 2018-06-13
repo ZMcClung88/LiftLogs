@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import firebase from 'firebase';
 import config from './config';
 
-import store from './store';
+import store from './store/';
 import WelcomeScreen from './screens/WelcomeScreen';
 import AuthScreen from './screens/AuthScreen';
 import DashScreen from './screens/DashScreen';
