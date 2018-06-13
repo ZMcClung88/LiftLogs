@@ -16,7 +16,7 @@ const LON = -111.591896;
 const url = `${ROOT_URL}&lat=${LAT}&lon=${LON}`;
 
 class Weather extends Component {
-  state = { weather: [] };
+  state = { weather: {} };
 
   componentDidMount() {
     // console.log('url', url);
@@ -29,13 +29,14 @@ class Weather extends Component {
       .catch(error => {
         console.log('error', error);
       });
-    console.log('state', this.state.weather);
   }
 
   render() {
+    const { _response } = _.map(this.state.weather, item => item);
     return (
       <View>
         <Text>Weather Component</Text>
+        <Text>{_response}</Text>
       </View>
     );
   }

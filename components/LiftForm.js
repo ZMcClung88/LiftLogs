@@ -9,7 +9,7 @@ class LiftForm extends Component {
   render() {
     return (
       <View>
-        <CardSection>
+        <CardSection style={{ height: 40, backgroundColor: 'white' }}>
           <Input
             label="Lift Name"
             placeholder="Eagle Express"
@@ -23,9 +23,24 @@ class LiftForm extends Component {
 }
 
 const styles = {
-  pickerTextStyle: {
-    fontSize: 18,
-    paddingLeft: 20
+  titleStyle: {
+    fontSize: 24,
+    paddingLeft: 15,
+    color: '#F3D92D'
+  },
+  phoneStyle: {
+    color: '#1e304f',
+    fontWeight: 'bold',
+    paddingLeft: 25
+  },
+  containerStyle: {
+    borderBottomWidth: 1,
+    padding: 5,
+    backgroundColor: '#596479',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+    borderColor: '#ddd',
+    position: 'relative'
   }
 };
 

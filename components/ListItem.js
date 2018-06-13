@@ -8,15 +8,16 @@ class ListItem extends Component {
   }
 
   render() {
-    const { firstName, lastName } = this.props.employee;
+    const { firstName, lastName, phone } = this.props.employee;
 
     return (
       <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
         <View>
-          <CardSection>
+          <CardSection style={styles.containerStyle}>
             <Text style={styles.titleStyle}>
               {firstName} {lastName}
             </Text>
+            <Text style={styles.phoneStyle}>phone: {phone}</Text>
           </CardSection>
         </View>
       </TouchableWithoutFeedback>
@@ -26,8 +27,23 @@ class ListItem extends Component {
 
 const styles = {
   titleStyle: {
-    fontSize: 18,
-    paddingLeft: 15
+    fontSize: 24,
+    paddingLeft: 15,
+    color: '#F3D92D'
+  },
+  phoneStyle: {
+    color: '#1e304f',
+    fontWeight: 'bold',
+    paddingLeft: 25
+  },
+  containerStyle: {
+    borderBottomWidth: 1,
+    padding: 5,
+    backgroundColor: '#596479',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+    borderColor: '#ddd',
+    position: 'relative'
   }
 };
 

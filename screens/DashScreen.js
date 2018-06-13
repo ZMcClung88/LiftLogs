@@ -84,7 +84,8 @@ const styles = {
     backgroundColor: '#596479',
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginBottom: 15
+    marginBottom: 15,
+    height: SCREEN_HEIGHT
   },
   buttonStyle: {
     flex: 1

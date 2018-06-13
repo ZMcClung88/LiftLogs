@@ -53,11 +53,17 @@ class EmployeeList extends Component {
   renderRow(employee) {
     // console.log('employee', employee);
     return <ListItem employee={employee} />;
-    return null;
   }
 
   render() {
-    return <ListView enableEmptySections dataSource={this.dataSource} renderRow={this.renderRow} />;
+    return (
+      <ListView
+        style={{ backgroundColor: '#1e304f' }}
+        enableEmptySections
+        dataSource={this.dataSource}
+        renderRow={this.renderRow}
+      />
+    );
   }
 }
 

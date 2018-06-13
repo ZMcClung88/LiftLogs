@@ -27,8 +27,9 @@ class AddEmployee extends Component {
 const styles = {
   container: {
     flex: 1,
-    paddingTop: 50
-    // justifyContent: 'center'
+    paddingTop: 50,
+    // justifyContent: 'center',
+    backgroundColor: '#fff'
   },
   buttonContainer: {
     paddingTop: 50
