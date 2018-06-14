@@ -13,30 +13,32 @@ const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KE
 const LAT = 40.619763;
 const LON = -111.591896;
 
-const url = `${ROOT_URL}&lat=${LAT}&lon=${LON}`;
+const url = `${ROOT_URL}&lat=${LAT}&lon=${LON}&cnt=5`;
 
 class Weather extends Component {
-  state = { weather: {} };
+  state = {
+    weather: []
+  };
 
-  componentDidMount() {
-    // console.log('url', url);
-    axios
-      .get(url)
-      .then(response => {
-        // console.log(response.request._response);
-        this.setState({ weather: response.request }, () => console.log('state!!!!!', this.state.weather));
-      })
-      .catch(error => {
-        console.log('error', error);
-      });
+  componentWillMount() {
+    axios.get(url).then(response => {
+      this.setState({ weather: response.data });
+    });
   }
 
   render() {
-    const { _response } = _.map(this.state.weather, item => item);
+    const data = this.state.weather;
+    const condition = _.map(data.weather, obj => obj.main);
+    const highTemp = _.map(this.state, obj => obj);
+    console.log('main', highTemp);
     return (
       <View>
-        <Text>Weather Component</Text>
-        <Text>{_response}</Text>
+        <Text>Today's Weather</Text>
+        <Text>{condition}</Text>
+        {/* <Text>{highTemp}</Text> */}
+        {/* <Text>Current: {_.round(9 / 5 * (data.temp - 273) + 32)} &deg;F</Text>
+        <Text>Max Temp: {_.round(9 / 5 * (data.temp_max - 273) + 32)} &deg;F</Text>
+        <Text>Min Temp: {_.round(9 / 5 * (data.temp_min - 273) + 32)} &deg;F</Text> */}
       </View>
     );
   }

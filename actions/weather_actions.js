@@ -9,17 +9,20 @@ const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KE
 const LAT = 40.619763;
 const LON = -111.591896;
 
-export async function fetchWeather() {
-  console.log(LAT, LON);
-  const url = `${ROOT_URL}&lat=${LAT}&lon=${LON}`;
-  const request = await axios.get(url);
+export const fetchWeather = callback => async dispatch => {
+  // console.log(LAT, LON);
+  try {
+    const url = `${ROOT_URL}&lat=${LAT}&lon=${LON}`;
+    let { data } = await axios.get(url);
+    dispatch({ type: FETCH_WEATHER, payload: data });
+    // console.log('request', data.list);
+  } catch (err) {
+    console.log('err', err);
+  }
 
-  console.log('url', url);
-  console.log('Request', request.request._response);
-
-  return {
-    type: FETCH_WEATHER,
-    // We are returning the promise as the payload
-    payload: request
-  };
-}
+  // return {
+  //   type: FETCH_WEATHER,
+  //   // We are returning the promise as the payload
+  //   payload: request
+  // };
+};
