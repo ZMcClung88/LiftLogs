@@ -8,7 +8,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 class Menu extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'Dashboard',
+      title: 'Menu',
       tabBarIcon: () => {
         return <Icon name="favorite" size={30} />;
       },

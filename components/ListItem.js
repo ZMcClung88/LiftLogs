@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { CardSection } from './common';
 
 class ListItem extends Component {
-  onRowPress(props) {
-    // console.log('lift list item props', this.props);
-  }
-
   render() {
     const { firstName, lastName, phone } = this.props.employee;
 
     return (
-      <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
+      <TouchableOpacity>
         <View>
           <CardSection style={styles.containerStyle}>
             <Text style={styles.titleStyle}>
@@ -20,7 +16,7 @@ class ListItem extends Component {
             <Text style={styles.phoneStyle}>phone: {phone}</Text>
           </CardSection>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     );
   }
 }

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView } from 'react-native';
+import { ListView, FlatList } from 'react-native';
 import { Button } from 'react-native-elements';
 import { employeesFetch } from '../actions';
 import ListItem from '../components/ListItem';
@@ -54,6 +54,10 @@ class EmployeeList extends Component {
     // console.log('employee', employee);
     return <ListItem employee={employee} />;
   }
+
+  // renderitem({ employees }) {
+  //   console.log('employees', employees);
+  // }
 
   render() {
     return (

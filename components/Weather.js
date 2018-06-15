@@ -21,20 +21,22 @@ class Weather extends Component {
   };
 
   componentWillMount() {
-    axios.get(url).then(response => {
-      this.setState({ weather: response.data });
-    });
+    this.props.fetchWeather();
+    // console.log('please log');
+    // axios.get(url).then(response => {
+    //   this.setState({ weather: response.data });
+    // });
   }
 
   render() {
-    const data = this.state.weather;
-    const condition = _.map(data.weather, obj => obj.main);
-    const highTemp = _.map(this.state, obj => obj);
-    console.log('main', highTemp);
+    // const data = this.state.weather;
+    // const condition = _.map(data.weather, obj => obj.main);
+    // const highTemp = _.map(this.state, obj => obj);
+    // console.log('main', highTemp);
     return (
       <View>
         <Text>Today's Weather</Text>
-        <Text>{condition}</Text>
+        {/* <Text>{condition``}</Text> */}
         {/* <Text>{highTemp}</Text> */}
         {/* <Text>Current: {_.round(9 / 5 * (data.temp - 273) + 32)} &deg;F</Text>
         <Text>Max Temp: {_.round(9 / 5 * (data.temp_max - 273) + 32)} &deg;F</Text>
@@ -43,5 +45,10 @@ class Weather extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => {
+//   const weatherData = state.weather;
+//   return weatherData;
+// };
 
 export default connect(null, { fetchWeather })(Weather);
