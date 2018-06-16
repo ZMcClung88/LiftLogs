@@ -29,26 +29,29 @@ class Weather extends Component {
   }
 
   render() {
-    // const data = this.state.weather;
-    // const condition = _.map(data.weather, obj => obj.main);
-    // const highTemp = _.map(this.state, obj => obj);
-    // console.log('main', highTemp);
+    // const data = weatherData;
+    // const tempData = _.map(this.props.list, obj => obj.tempData);
+    // const temps = _.map(tempData, obj => obj.temp);
+    // const displayTemp = _.map(temps, temp => _.round(9 / 5 * (temp - 273) + 32));
+    // console.log('temp', displayTemp);
+
     return (
       <View>
         <Text>Today's Weather</Text>
-        {/* <Text>{condition``}</Text> */}
+        {/* <Text>{temp}</Text> */}
         {/* <Text>{highTemp}</Text> */}
-        {/* <Text>Current: {_.round(9 / 5 * (data.temp - 273) + 32)} &deg;F</Text>
-        <Text>Max Temp: {_.round(9 / 5 * (data.temp_max - 273) + 32)} &deg;F</Text>
+        {/* <Text>Current: {_.round(9 / 5 * (temps - 273) + 32)} &deg;F</Text> */}
+        {/* <Text>Max Temp: {_.round(9 / 5 * (data.temp_max - 273) + 32)} &deg;F</Text>
         <Text>Min Temp: {_.round(9 / 5 * (data.temp_min - 273) + 32)} &deg;F</Text> */}
       </View>
     );
   }
 }
 
-// const mapStateToProps = state => {
-//   const weatherData = state.weather;
-//   return weatherData;
-// };
+const mapStateToProps = state => {
+  // console.log('state', state.weather);
+  const weatherData = state.weather;
+  return weatherData;
+};
 
-export default connect(null, { fetchWeather })(Weather);
+export default connect(mapStateToProps, { fetchWeather })(Weather);

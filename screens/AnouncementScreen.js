@@ -8,7 +8,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class AnouncementScreen extends Component {
-  state = { notes: '' };
+  state = { notes: '', hide: false };
 
   static navigationOptions = ({ navigation }) => {
     return {
@@ -21,6 +21,48 @@ class AnouncementScreen extends Component {
         backgroundColor: '#1e304f'
       }
     };
+  };
+
+  onChangeText = value => {
+    this.setState({ notes: value });
+    console.log('value', this.state.notes);
+  };
+
+  toggleHide = () => {
+    console.log('state', this.state.notes);
+    this.setState({ hide: true });
+  };
+
+  _renderHide = () => {
+    if (!this.state.hide) {
+      return (
+        <TextInput
+          // style={{ display: this.state.isHidden ? 'none' : null }}
+          onChangeText={this.onChangeText}
+          value={this.state.notes}
+          multiline
+          autoCorrect
+          autoFocus
+          style={styles.textInputStyle}
+          editable={true}
+          maxLength={250}
+        />
+      );
+    } else {
+      return (
+        <View
+          style={{
+            height: 175,
+            width: SCREEN_WIDTH * 0.9,
+            borderColor: 'gray',
+            backgroundColor: 'lightblue',
+            marginTop: 10
+          }}
+        >
+          Notes: {this.state.notes}
+        </View>
+      );
+    }
   };
 
   render() {
@@ -38,9 +80,9 @@ class AnouncementScreen extends Component {
         </View>
         <View style={{ marginTop: 40 }}>
           <Text style={{ fontStyle: 'italic' }}>Today's Notes:</Text>
-          <TextInput multiline autoCorrect autoFocus style={styles.textInputStyle} editable={true} maxLength={250} />
+          {this._renderHide()}
         </View>
-        <MyButton text="Done" style={styles} onPress={() => console.log('holy fuck!!!')} />
+        <MyButton text="Done" style={styles} onPress={this.toggleHide.bind(this)} />
       </ScrollView>
     );
   }
