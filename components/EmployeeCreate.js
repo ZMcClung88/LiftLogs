@@ -30,6 +30,7 @@ class EmployeeCreate extends Component {
 
 const mapStateToProps = state => {
   const { firstName, lastName, phone } = state.employeeForm;
+  // console.log('state', state.employeeForm);
 
   return { firstName, lastName, phone };
 };

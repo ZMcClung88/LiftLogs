@@ -20,8 +20,10 @@ class LiftCreate extends Component {
     return (
       <Card>
         <LiftForm {...this.props} />
-        <CardSection style={{ height: 40 }}>
-          <Button onPress={this.onButtonPress.bind(this)}>Create</Button>
+        <CardSection>
+          <Button style={styles.buttonStyle} onPress={this.onButtonPress.bind(this)}>
+            Create
+          </Button>
         </CardSection>
       </Card>
     );

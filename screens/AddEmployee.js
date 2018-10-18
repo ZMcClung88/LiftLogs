@@ -1,39 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage, Dimensions } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import EmployeeForm from '../components/EmployeeForm';
-import EmployeeCreate from '../components/EmployeeCreate';
+import { View, Text } from 'react-native';
 
-const SCREEN_HEIGHT = Dimensions.get('window').height;
-
-class AddEmployee extends Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    phone: ''
-  };
-
-  onButtonPress = () => {};
-
+class Add Employee extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <EmployeeCreate props={this.props} />
+      <View>
+        <Text>Add Employee</Text>
+        <Text>Add Employee</Text>
+        <Text>Add Employee</Text>
+        <Text>Add Employee</Text>
+        <Text>Add Employee</Text>
+        <Text>Add Employee</Text>
       </View>
     );
   }
 }
 
-const styles = {
-  container: {
-    flex: 1,
-    paddingTop: 50,
-    // justifyContent: 'center',
-    backgroundColor: '#fff'
-  },
-  buttonContainer: {
-    paddingTop: 50
-  }
-};
-
-export default AddEmployee;
+export default Add Employee;

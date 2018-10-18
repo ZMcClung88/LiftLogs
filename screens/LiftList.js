@@ -1,81 +1,19 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { ListView } from 'react-native';
-import { Button } from 'react-native-elements';
-import { liftFetch } from '../actions';
-import LiftListItem from '../components/LiftListItem';
+import { View, Text } from 'react-native';
 
 class LiftList extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'Lifts',
-      tabBarIcon: () => {
-        return <Icon name="favorite" size={24} />;
-      },
-      headerTintColor: 'royalblue',
-      headerStyle: {
-        backgroundColor: '#1e304f'
-      },
-      headerRight: (
-        <Button
-          title="Add"
-          onPress={() => navigation.navigate('addLift')}
-          backgroundColor="rgba(0,0,0,0)"
-          color="rgba(0,122,255,1)"
-        />
-      )
-    };
-  };
-
-  componentWillMount() {
-    this.props.liftFetch();
-
-    this.createDataSource(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // nextProps are the next set of props that this component
-    // will be rendered with
-    // this.props is still the old set of props
-
-    this.createDataSource(nextProps);
-  }
-
-  createDataSource({ lifts }) {
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
-
-    this.dataSource = ds.cloneWithRows(lifts);
-  }
-
-  renderRow(lift) {
-    console.log('lift', lift);
-    return <LiftListItem lift={lift} />;
-  }
-
   render() {
     return (
-      <ListView
-        style={{ backgroundColor: '#1e304f' }}
-        enableEmptySections
-        dataSource={this.dataSource}
-        renderRow={this.renderRow}
-      />
+      <View>
+        <Text>LiftList</Text>
+        <Text>LiftList</Text>
+        <Text>LiftList</Text>
+        <Text>LiftList</Text>
+        <Text>LiftList</Text>
+        <Text>LiftList</Text>
+      </View>
     );
   }
 }
 
-const mapStateToProps = (state, props) => {
-  // console.log('state', props);
-  const lifts = _.map(state.lifts, (val, uid) => {
-    return { ...val, uid };
-  });
-
-  const navigation = state.navigation;
-
-  return { lifts, navigation };
-};
-
-export default connect(mapStateToProps, { liftFetch })(LiftList);
+export default LiftList;

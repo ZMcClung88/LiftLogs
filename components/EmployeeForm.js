@@ -63,7 +63,7 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  console.log('state', state);
+  // console.log('state', state);
   const { firstName, lastName, phone } = state.employeeForm;
 
   return { firstName, lastName, phone };
